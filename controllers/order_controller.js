@@ -6,11 +6,9 @@ export default class OrderController {
 
     static getOrders(req,res){
 
-      dbObs.getOrders().then((data) => {
+      orderOps.getOrders().then((data) => {
             res.json(data[0]);
           });
-
-
     }
 
    /* static register(req, res) {
