@@ -1,15 +1,21 @@
 import { Router } from 'express';
-import UserController from './UserController.js';
+import OrderController from '../controllers/order_controller.js';
 
-const router = Router();
 
+
+const order_router = Router();
+
+
+order_router.get('/orders',OrderController.getOrders);
+
+
+/*
 router.get(
   '/register',
   UserController.register
 );
 
 
-/*
 app.get('/hello', (req, res)=>{
     res.set('Content-Type', 'text/html');
     res.status(200).send("<h1>Hello GFG Learner!</h1>");
@@ -46,4 +52,4 @@ app.get('/users', (req, res) => {
   */
 
 
-export default router;
+export default order_router;

@@ -1,16 +1,28 @@
 
-
 import express from 'express';
 
 import bodyParser from 'body-parser';
 
+import cors from 'cors';
+
 const app = express();
 
-import router from './route.js';
+import order_router from './routes/order_routes.js';
+
+app.use(bodyParser.urlencoded({ extended:  true }));
 
 app.use(bodyParser.json());
 
-app.use('/', router);
+app.use(cors());
+
+/*
+order_router.use((request, response, next) => {
+    console.log('middleware');
+    next();
+  }); */
+  
+
+app.use('/', order_router);
 
 const PORT = 3000;
 
