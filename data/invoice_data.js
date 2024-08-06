@@ -1,14 +1,10 @@
-//import config from '../dbconfig.js';
-//import sql from 'mssql';
-
 import  poolPromise  from '../dbconn.js';
 
-/*
 async  function  getUserPerformance() {
   try {
-    let  pool = await  sql.connect(config);
+    let  pool = await poolPromise;
     let  resp = await  pool.request()
-    .execute('spGetInsurance_UserPerformance');
+    .execute('spGetInvoice_UserPerformance');
     return resp.recordsets;
   }
   catch (err) {
@@ -17,24 +13,24 @@ async  function  getUserPerformance() {
 }
 
 
-async  function  getSubjectwiseTotalTrans() {
+async  function  getTypewiseTotalTrans() {
   try {
-    let  pool = await  sql.connect(config);
+    let  pool = await poolPromise;
     let  resp = await  pool.request()
-    .execute('spGetInsurance_Subjectwise_Totaltrans');
+    .execute('spGetInvoice_For_InvoiceTypes');
     return resp.recordsets;
   }
   catch (err) {
     console.log(err);
   }
-}*/
+}
 
 
 async  function  getTopSummary() {
   try {
     let  pool = await poolPromise;
     let  resp = await  pool.request()
-    .execute('spGetJobInOut_TopSummary');
+    .execute('spGetInvoice_TopSummary');
     return resp.recordsets;
   }
   catch (err) {
@@ -43,10 +39,10 @@ async  function  getTopSummary() {
 }
 
 
-  const jobInOutOps = {  
-  /*  getUserPerformance:  getUserPerformance,
-    getSubjectwiseTotalTrans: getSubjectwiseTotalTrans, */
+  const invoiceOps = {  
+    getUserPerformance:  getUserPerformance,
+    getTypewiseTotalTrans: getTypewiseTotalTrans,
     getTopSummary:getTopSummary
   }
 
-  export default jobInOutOps;
+  export default invoiceOps;

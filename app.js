@@ -10,10 +10,13 @@ const app = express();
 import order_router from './routes/order_routes.js';
 
 import reception_router from './routes/reception_routes.js';
-
 import insurance_router from './routes/insurance_routes.js';
+import gatepass_router from './routes/gatepass_routes.js';
 import jobinout_router from './routes/jobinout_routes.js';
 import appointment_router from './routes/appointment_routes.js';
+import invoice_router from './routes/invoice_routes.js';
+import asset_router from './routes/asset_routes.js';
+import fleetreq_router from './routes/fleetreq_routes.js';
 
 app.use(bodyParser.urlencoded({ extended:  true }));
 
@@ -37,9 +40,19 @@ app.use('/reception', reception_router);
 
 app.use('/insurance', insurance_router);
 
+app.use('/gatepass', gatepass_router);
+
 app.use('/jobinout', jobinout_router);
 
 app.use('/appointment', appointment_router);
+
+app.use('/invoice', invoice_router);
+
+app.use('/asset', asset_router);
+
+app.use('/invoice', invoice_router);
+
+app.use('/fleetreq', fleetreq_router);
 
 
 const PORT = 8080;

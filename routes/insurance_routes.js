@@ -8,6 +8,8 @@ insurance_router.get('/userperformance',InsuranceController.getUserPeformance);
 
 insurance_router.get('/subjectwisetotals',InsuranceController.getSubjectwiseTotalTrans);
 
+insurance_router.get('/activeinsurancetotals',InsuranceController.getActiveInsuranceTotalTrans);
+
 insurance_router.get('/summarytotals',InsuranceController.getTopSummary);
 
 export default insurance_router;

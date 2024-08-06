@@ -1,9 +1,13 @@
-import config from '../dbconfig.js';
-import sql from 'mssql';
+//import config from '../dbconfig.js';
+//import sql from 'mssql';
+
+//const { poolPromise } = require('./dbconn');
+
+import  poolPromise  from '../dbconn.js';
 
 async  function  getOrders() {
     try {
-      let  pool = await  sql.connect(config);
+      let  pool = await poolPromise;
       let  products = await  pool.request().query("SELECT * from Orders");
       return  products.recordsets;
     }
@@ -15,7 +19,7 @@ async  function  getOrders() {
 
   async  function  getOrder(productId) {
     try {
-      let  pool = await  sql.connect(config);
+      let  pool = await poolPromise;
       let  product = await  pool.request()
       .input('input_parameter', sql.Int, productId)
       .query("SELECT * from Orders where Id = @input_parameter");
@@ -30,7 +34,7 @@ async  function  getOrders() {
 
   async  function  addOrder(order) {
     try {
-      let  pool = await  sql.connect(config);
+      let  pool = await poolPromise;
       let  insertProduct = await  pool.request()
       .input('Id', sql.Int, order.Id)
       .input('Title', sql.NVarChar, order.Title)

@@ -18,12 +18,21 @@ export default class InsuranceController {
           });
     }
 
+    static getActiveInsuranceTotalTrans(req,res){
+
+      insuranceOps.getActiveInsuranceTotalTrans().then((data) => {
+            res.json(data[0]);
+          });
+    }
+
+
     static getTopSummary(req,res){
 
       insuranceOps.getTopSummary().then((data) => {
             res.json(data[0]);
           });
     }
-  
+    
 
+    
   }

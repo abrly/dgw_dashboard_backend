@@ -1,10 +1,8 @@
-import config from '../dbconfig.js';
-import sql from 'mssql';
-
+import  poolPromise  from '../dbconn.js';
 
 async  function  getServiceAgentSummary() {
   try {
-    let  pool = await  sql.connect(config);
+    let  pool = await poolPromise;
     let  resp = await  pool.request()
     .execute('spGetAppointments_For_ServiceAgents');
     return resp.recordsets;
@@ -30,7 +28,7 @@ async  function  getSubjectwiseTotalTrans() {
 
 async  function  getTopSummary() {
   try {
-    let  pool = await  sql.connect(config);
+    let  pool = await poolPromise;
     let  resp = await  pool.request()
     .execute('spGetAppointments_TopSummary');
     return resp.recordsets;
