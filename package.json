@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "type": "module",
   "description": "dashboard backend app",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app"
+    "start": "nodemon server"
   },
   "author": "akbar",
   "license": "ISC",
