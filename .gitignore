@@ -1,2 +1,3 @@
 node_modules
-dbconfig.js
+data/db/dbconfig.js
+.gitignore

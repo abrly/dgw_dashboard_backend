@@ -1,5 +1,5 @@
 
-import  poolPromise  from '../dbconn.js';
+import  poolPromise  from './db/dbconn.js';
 
 async  function  getUserPerformance() {
   try {
@@ -12,21 +12,6 @@ async  function  getUserPerformance() {
     console.log(err);
   }
 }
-
-/*
-
-async  function  getSubjectwiseTotalTrans() {
-  try {
-    let  pool = await  sql.connect(config);
-    let  resp = await  pool.request()
-    .execute('spGetInsurance_Subjectwise_Totaltrans');
-    return resp.recordsets;
-  }
-  catch (err) {
-    console.log(err);
-  }
-} */
-
 
 async  function  getTopSummary() {
   try {
@@ -42,8 +27,7 @@ async  function  getTopSummary() {
 
 
   const gatepassOps = {  
-    getUserPerformance:  getUserPerformance,
-   /* getSubjectwiseTotalTrans: getSubjectwiseTotalTrans, */
+    getUserPerformance:  getUserPerformance, 
     getTopSummary:getTopSummary
   }
 

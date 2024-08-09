@@ -1,7 +1,3 @@
-//import config from '../dbconfig.js';
-//import sql from 'mssql';
-
-//const { poolPromise } = require('./dbconn');
 
 import  poolPromise  from '../dbconn.js';
 

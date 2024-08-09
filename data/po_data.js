@@ -1,4 +1,4 @@
-import  poolPromise  from '../dbconn.js';
+import  poolPromise  from './db/dbconn.js';
 
 
 async  function  getTopSummary() {
